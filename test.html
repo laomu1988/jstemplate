@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>测试jstemplate</title>
+    <script src="jstemplate.js"></script>
+</head>
+<body>
+test
+<script>
+
+    var tpl = '<ul test="333" if={show} disabled="{disabled}"><li each="{d in data}">d<br></li></ul>';
+    tpl = '<div color="green"><br />test<span>ad</span><span2>etst</span2></div>';
+    var data = {
+        show: true,
+        test: 'test value',
+        data: [1, 2, 3]
+    };
+    var result;
+    result = jstemplate('<div color="test">{test}</div>')(data);
+    console.log(result);
+    result = jstemplate('<ul test="333" if="{show}"><li each="{d in data}">{d}<br></li></ul>')(data);
+    console.log(result);
+
+</script>
+</body>
+</html>
